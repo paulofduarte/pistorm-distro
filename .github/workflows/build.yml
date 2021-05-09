@@ -21,7 +21,7 @@ jobs:
           path: poky
           key: ${{ runner.os }}-poky
 
-      - name: Cache build build
+      - name: Cache build
         uses: actions/cache@v2
         with:
           path: build
@@ -31,6 +31,7 @@ jobs:
         run: |
           export DEBIAN_FRONTEND=noninteractive
           sudo debconf-set-selections .github/workflows/debconf_selections
+          sudo dpkg-reconfigure dash
           sudo apt update
           sudo apt -y upgrade
           sudo apt -y install --no-install-recommends build-essential chrpath diffstat gawk libncurses5-dev python3-distutils texinfo
