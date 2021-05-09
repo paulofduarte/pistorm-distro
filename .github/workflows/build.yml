@@ -15,6 +15,18 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Cache poky
+        uses: actions/cache@v2
+        with:
+          path: poky
+          key: ${{ runner.os }}-poky
+
+      - name: Cache build build
+        uses: actions/cache@v2
+        with:
+          path: build
+          key: ${{ runner.os }}-build
+
       - name: Prepare build environment
         run: |
           export DEBIAN_FRONTEND=noninteractive
