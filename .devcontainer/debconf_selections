@@ -1,0 +1,2 @@
+# Make bash default /bin/sh shell
+dash dash/sh boolean false
