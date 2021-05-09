@@ -1,0 +1,25 @@
+#!/bin/sh
+
+echo "Starting PiStorm Services - www.epromfoundry.com default"
+echo "mike@epromfoudnry.com"
+
+if [ -f /SECONDBOOT ]; then 
+		sync
+		sleep 1
+		fdisk -l | logger
+		echo "Creating EXT4 Filesystem on /dev/mmcblk0p3" | logger
+		mkfs.ext4 -F /dev/mmcblk0p3 | logger
+
+		echo "mkfs.ext4 -F /dev/mmcblk0p3" > /root/createfs.sh
+		echo "mount -a" >> /root/createfs.sh
+		echo "df -h" >> /root/createfs.sh
+		chmod 755 /root/createfs.sh
+	  	mkdir /amiga 2>/dev/null
+		echo "/dev/mmcblk0p3	/amiga		ext4	rw	0	1" >> /etc/fstab
+	  	mount -a
+		df -h 
+		rm -f /SECONDBOOT
+		rm -f /etc/init.d/S90Secondboot
+		sync
+		reboot
+fi

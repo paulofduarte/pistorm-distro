@@ -1,0 +1,48 @@
+#!/bin/sh
+
+echo "Starting PiStorm Services - www.epromfoundry.com default"
+echo "mike@epromfoudnry.com"
+
+if [ -f /FIRSTBOOT ]; then
+		sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << EOF | fdisk /dev/mmcblk0
+	  	n # new partition
+	  	p # primary partition
+	  	3 # partition number 1
+
+
+	  	p # print the in-memory partition table
+	  	w # write the partition table
+	  	q # and we're done
+EOF
+		mv /etc/init.d/S20urandom /etc/init.d/disabled/
+		mv /etc/init.d/S30rpcbind  /etc/init.d/disabled/
+		mv /etc/init.d/S40network  /etc/init.d/disabled/
+		mv /etc/init.d/S60nfs      /etc/init.d/disabled/
+		mv /etc/init.d/S99pistorm  /etc/init.d/disabled/
+
+		rm -f /FIRSTBOOT
+		touch /SECONDBOOT
+		sync
+		reboot
+fi
+
+#if [ -f /SECONDBOOT ]; then 
+#		sync
+#		sleep 1
+#		fdisk -l
+#		echo "Creating EXT4 Filesystem on /dev/mmcblk0p3"
+#		mkfs.ext4 -F /dev/mmcblk0p3
+#	  	mkdir /amiga 2>/dev/null
+#		echo "/dev/mmcblk0p3	/amiga		ext4	rw	0	1" >> /etc/fstab
+#	  	mount -a
+#		df -h 
+#		rm -f /SECONDBOOT
+#		sync
+#		reboot
+#fi
+
+#NORMAL EXECUTION
+
+cd /opt/pistorm
+/opt/pistorm/emulator > /dev/tty1 2>&1 &
+

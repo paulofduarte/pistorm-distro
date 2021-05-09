@@ -8,7 +8,7 @@ if [ ! -d buildroot-$BUILDROOT_VERSION ]; then
     rm buildroot-$BUILDROOT_VERSION.tar.bz2
 fi
 
-cp pistorm_distro.config buildroot-$BUILDROOT_VERSION/.config
-cp pistorm_logo.png buildroot-$BUILDROOT_VERSION/
+find resources -name "*.sh" -exec chmod 755 {} \;
+cp -pav resources/. buildroot-$BUILDROOT_VERSION/
 cd buildroot-$BUILDROOT_VERSION
 make
