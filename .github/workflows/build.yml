@@ -2,8 +2,9 @@ name: Build pistorm distro
 
 inputs:
   builtroot-version:
-  required: true
-  default: 2021.02.1
+    description: Buildroot version
+    required: true
+    default: 2021.02.1
 
 on:
   push:
