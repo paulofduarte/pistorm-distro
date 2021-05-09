@@ -23,6 +23,7 @@ define PISTORM_INSTALL_TARGET_CMDS
 	$(INSTALL) -D -m 0644 $(@D)/nprog.sh $(TARGET_DIR)/opt/pistorm
 	$(INSTALL) -D -m 0644 $(@D)/nprog_240.sh $(TARGET_DIR)/opt/pistorm
 	$(INSTALL) -D -m 0644 $(@D)/nprog_old.sh $(TARGET_DIR)/opt/pistorm
+	$(INSTALL) -D -m 0644 $(@D)/test.cfg $(TARGET_DIR)/opt/pistorm
 	$(INSTALL) -D -m 0644 $(@D)/x86k.cfg $(TARGET_DIR)/opt/pistorm
 	$(INSTALL) -D -m 0644 $(@D)/nprog/68_240.cfg $(TARGET_DIR)/opt/pistorm/nprog
 	$(INSTALL) -D -m 0644 $(@D)/nprog/68new.cfg $(TARGET_DIR)/opt/pistorm/nprog

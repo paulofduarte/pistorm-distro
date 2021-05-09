@@ -10,6 +10,8 @@ if [ ! -d buildroot-$BUILDROOT_VERSION ]; then
 fi
 
 rm -rf buildroot-$BUILDROOT_VERSION/dl/pistorm
+rm -rf buildroot-$BUILDROOT_VERSION/output/build/pistorm
+rm -rf buildroot-$BUILDROOT_VERSION/output/target/opt/pistorm
 
 find resources -name "*.sh" -exec chmod 755 {} \;
 cp -pav resources/. buildroot-$BUILDROOT_VERSION/
