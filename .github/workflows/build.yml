@@ -12,6 +12,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
+      PISTORM_BRANCH: main
       BUILDROOT_VERSION: 2021.02.1
 
     steps:
@@ -30,7 +31,7 @@ jobs:
           key: ${{ runner.os }}-build
 
       - name: Build distro
-        run: ./build.sh ${{ env.BUILDROOT_VERSION }}
+        run: ./build.sh
       
       - name: Upload distro image
         uses: actions/upload-artifact@v2

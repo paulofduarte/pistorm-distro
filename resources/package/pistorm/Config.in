@@ -1,0 +1,7 @@
+config BR2_PACKAGE_PISTORM
+        bool "pistorm"
+        depends on BR2_PACKAGE_SDL2
+        help
+          A 68000 CPU replacement.
+
+          https://github.com/captain-amygdala/pistorm

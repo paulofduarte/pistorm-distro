@@ -15,9 +15,11 @@ chmod 755 ${TARGET_DIR}/etc/init.d/S10mdev
 cp package/busybox/mdev.conf ${TARGET_DIR}/etc/mdev.conf
 cp board/raspberrypi3/interfaces ${TARGET_DIR}/etc/network/interfaces
 cp board/raspberrypi3/wpa_supplicant.conf ${TARGET_DIR}/etc/wpa_supplicant.conf
-rm -rf ${TARGET_DIR}/opt/pistorm
-mkdir  ${TARGET_DIR}/opt/pistorm
-cp -pav pistorm/deploy/* ${TARGET_DIR}/opt/pistorm
+
+# --- Removed copying of pistorm files as package was added ---
+# rm -rf ${TARGET_DIR}/opt/pistorm
+# mkdir  ${TARGET_DIR}/opt/pistorm
+# cp -pav pistorm/deploy/* ${TARGET_DIR}/opt/pistorm
 
 rm -rf ${TARGET_DIR}/etc/init.d/disabled
 mkdir ${TARGET_DIR}/etc/init.d/disabled
