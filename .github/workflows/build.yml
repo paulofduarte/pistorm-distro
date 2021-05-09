@@ -1,11 +1,5 @@
 name: Build pistorm distro
 
-inputs:
-  builtroot-version:
-    description: Buildroot version
-    required: true
-    default: 2021.02.1
-
 on:
   push:
     branches: [ main ]
@@ -17,6 +11,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      BUILDROOT_VERSION: 2021.02.1
 
     steps:
       - uses: actions/checkout@v2
@@ -30,13 +26,13 @@ jobs:
       - name: Cache buildroot
         uses: actions/cache@v2
         with:
-          path: buildroot-${{ github.event.inputs.builtroot-version }}
+          path: buildroot-${{ env.BUILDROOT_VERSION }}
           key: ${{ runner.os }}-build
 
       - name: Build distro
-        run: ./build.sh ${{ github.event.inputs.builtroot-version }}
+        run: ./build.sh ${{ env.BUILDROOT_VERSION }}
       
       - name: Upload distro image
         uses: actions/upload-artifact@v2
         with:
-          path: buildroot-${{ github.event.inputs.builtroot-version }}/output/images/sdcard.img
+          path: buildroot-${{ env.BUILDROOT_VERSION }}/output/images/sdcard.img
