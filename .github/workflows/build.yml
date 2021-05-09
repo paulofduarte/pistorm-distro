@@ -1,0 +1,41 @@
+name: Build pistorm distro
+
+inputs:
+  builtroot-version:
+  required: true
+  default: 2021.02.1
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Prepare build environment
+        run: |
+          export DEBIAN_FRONTEND=noninteractive
+          sudo apt update
+          sudo apt -y install --no-install-recommends build-essential chrpath diffstat gawk libncurses5-dev python3-distutils texinfo
+
+      - name: Cache buildroot
+        uses: actions/cache@v2
+        with:
+          path: buildroot-${{ github.event.inputs.builtroot-version }}
+          key: ${{ runner.os }}-build
+
+      - name: Build distro
+        run: ./build.sh ${{ github.event.inputs.builtroot-version }}
+      
+      - name: Upload distro image
+        uses: actions/upload-artifact@v2
+        with:
+          path: buildroot-${{ github.event.inputs.builtroot-version }}/output/images/sdcard.img
