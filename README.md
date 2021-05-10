@@ -4,7 +4,7 @@
 
 ![pistorm logo](resources/pistorm_logo.png)
 
-This project is a joint effort to bring a cutomised Linux distro for the project [pistorm](https://github.com/captain-amygdala/pistorm) developed by the great [Capitain Amygdala](https://github.com/captain-amygdala) and the community.
+This project is a joint effort to bring a customised Linux distro for the project [pistorm](https://github.com/captain-amygdala/pistorm) developed by the great [Capitain Amygdala](https://github.com/captain-amygdala) and the community.
 In the current state the project uses [Raspberry PI OS Lite](https://www.raspberrypi.org/software/operating-systems/) light, which causes long boot times when starting up your system.
 
 The pistorm-distro is been developed with [buildroot](https://buildroot.org) an amazing tool to create custom embedded Linux systems.
@@ -31,6 +31,7 @@ You'll need:
 * pistorm adapter board. **There's a semicondutor shortage going on now and those boards are very hard to get. Join the [discord channel]((https://discord.com/invite/j6rPtzxaNW)) for more info and to join a group buy.**
 
 ![The pistorm inside an Amiga A500](https://hackster.imgix.net/uploads/attachments/1287342/image_CfXuXLTYE1.png?auto=compress%2Cformat&w=740&h=555&fit=max)
+
 *Picture from [hackster.io article](https://www.hackster.io/news/hands-on-with-the-pistorm-the-ultimate-raspberry-pi-powered-accelerator-for-your-commodore-amiga-449ef0634f3e)*
 
 Download the latest pistorm-distro release and write the image into an sd card.
