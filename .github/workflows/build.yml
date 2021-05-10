@@ -37,12 +37,3 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           path: release/*
-      
-      - name: Create pull request artifact link comment
-        uses: tonyhallett/artifacts-url-comments@v1.1.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          prefix: SD card image for testing
-          suffix: THIS IS NOT A RELEASE
-          addTo: pullandissues
