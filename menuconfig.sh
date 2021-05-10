@@ -2,7 +2,7 @@
 
 export BUILDROOT_VERSION=${BUILDROOT_VERSION:-2021.02.1}
 
-./setup.sh
+sh ./setup.sh
 
 cd buildroot-${BUILDROOT_VERSION}
 

@@ -22,9 +22,9 @@ endef
 define PISTORM_INSTALL_TARGET_CMDS
 	$(INSTALL) -D -m 0644 $(@D)/default.cfg $(TARGET_DIR)/opt/pistorm/default.cfg
 	$(INSTALL) -D -m 0755 $(@D)/emulator $(TARGET_DIR)/opt/pistorm/emulator
-	$(INSTALL) -D -m 0644 $(@D)/nprog.sh $(TARGET_DIR)/opt/pistorm/nprog.sh
-	$(INSTALL) -D -m 0644 $(@D)/nprog_240.sh $(TARGET_DIR)/opt/pistorm/nprog_240.sh
-	$(INSTALL) -D -m 0644 $(@D)/nprog_old.sh $(TARGET_DIR)/opt/pistorm/nprog_old.sh
+	$(INSTALL) -D -m 0755 $(@D)/nprog.sh $(TARGET_DIR)/opt/pistorm/nprog.sh
+	$(INSTALL) -D -m 0755 $(@D)/nprog_240.sh $(TARGET_DIR)/opt/pistorm/nprog_240.sh
+	$(INSTALL) -D -m 0755 $(@D)/nprog_old.sh $(TARGET_DIR)/opt/pistorm/nprog_old.sh
 	$(INSTALL) -D -m 0644 $(@D)/test.cfg $(TARGET_DIR)/opt/pistorm/test.cfg
 	$(INSTALL) -D -m 0644 $(@D)/x68k.cfg $(TARGET_DIR)/opt/pistorm/x68k.cfg
 	$(INSTALL) -D -m 0644 $(@D)/nprog/68_240.cfg $(TARGET_DIR)/opt/pistorm/nprog/68_240.cfg
