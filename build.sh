@@ -3,17 +3,16 @@
 export PISTORM_BRANCH=${PISTORM_BRANCH:-main}
 export BUILDROOT_VERSION=${BUILDROOT_VERSION:-2021.02.1}
 
-if [ ! -d buildroot-$BUILDROOT_VERSION ]; then
-    curl -O https://buildroot.org/downloads/buildroot-$BUILDROOT_VERSION.tar.bz2
-    tar jxf buildroot-$BUILDROOT_VERSION.tar.bz2
-    rm buildroot-$BUILDROOT_VERSION.tar.bz2
-fi
+./setup.sh
 
-rm -rf buildroot-$BUILDROOT_VERSION/dl/pistorm
-rm -rf buildroot-$BUILDROOT_VERSION/output/build/pistorm-$PISTORM_BRANCH
-rm -rf buildroot-$BUILDROOT_VERSION/output/target/opt/pistorm
+cd buildroot-${BUILDROOT_VERSION}
 
-find resources -name "*.sh" -exec chmod 755 {} \;
-cp -pav resources/. buildroot-$BUILDROOT_VERSION/
-cd buildroot-$BUILDROOT_VERSION
+rm -rf dl/pistorm
+rm -rf output/build/pistorm-${PISTORM_BRANCH}
+rm -rf output/target/opt/pistorm
+
+make pistorm-rebuild
 make
+
+mkdir -p ../release
+zip -9j ../release/pistorm-distro-${PISTORM_BRANCH}-$(date +%Y%m%d-%H%M%S).zip output/images/sdcard.img
