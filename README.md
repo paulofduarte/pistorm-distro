@@ -1,6 +1,6 @@
 # pistorm-distro
 
-**EXPERIMENTAL: This project was barely tested and it's unlikely to work as expected. if you know what you're doing please test and report any found issues**
+**EXPERIMENTAL: This project was barely tested and it's unlikely to work as expected, if you know what you're doing please test and report any found issues**
 
 ![pistorm logo](resources/pistorm_logo.png)
 
