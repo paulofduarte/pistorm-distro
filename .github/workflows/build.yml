@@ -36,7 +36,7 @@ jobs:
       - name: Upload distro image
         uses: actions/upload-artifact@v2
         with:
-          path: buildroot-${{ env.BUILDROOT_VERSION }}/output/images/sdcard.img
+          path: release/*
       
       - name: Create pull request artifact link comment
         uses: tonyhallett/artifacts-url-comments@v1.1.0
@@ -45,5 +45,4 @@ jobs:
         with:
           prefix: SD card image for testing
           suffix: THIS IS NOT A RELEASE
-          format: sdcard.img {url}
           addTo: pullandissues
