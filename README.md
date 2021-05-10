@@ -26,7 +26,7 @@ At the moment the effort counts with 2 developers, hopefully there will be more 
 ## How to use
 
 You'll need:
-* Amiga 500/500+/600/1000/2000 (other 68000 based computers may work in the future).
+* Amiga 500/500+/1000/2000 (other 68000 based computers may work in the future).
 * [Rapberry PI 3 A+](https://www.raspberrypi.org/products/raspberry-pi-3-model-a-plus/) *Other models are know to work, but there are caveats like size constraints*.
 * pistorm adapter board. **There's a semicondutor shortage going on now and those boards are very hard to get. Join the [discord channel]((https://discord.com/invite/j6rPtzxaNW)) for more info and to join a group buy.**
 
